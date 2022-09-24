@@ -1,0 +1,64 @@
+.card {
+    border: 1px solid black;
+    margin: 5px;
+    width: 399px;
+    border-radius: 8px;
+    height: auto;
+    background-color:transparent;
+    backdrop-filter: blur(4px) brightness(40%);
+}
+.card a{
+    text-decoration: none;
+}
+
+.card:hover{
+    border: 1px solid white;
+    box-shadow: 0 0 10px white;
+    backdrop-filter: blur(4px) brightness(70%);
+}
+
+.image {
+    max-width: 399px;
+    min-width: 399px;
+    height: 300px;
+    margin-bottom: 10px;
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+* {
+    margin:0;
+    padding:0;
+}
+
+.nameCont {
+    width: 400px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name {
+    font-family: 'Merriweather';
+    font-size: 15pt;
+    padding: 10px;
+    color:white;
+}
+
+.diets{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.item {
+    font-family: 'Merriweather';
+    font-size: 10pt;
+    color:white;
+    border: 1px solid rgb(29, 29, 29);
+    border-radius: 5px;
+    background-color: rgb(56, 56, 56);
+    width: auto;
+    padding: 2px;
+    margin: 1px;
+}

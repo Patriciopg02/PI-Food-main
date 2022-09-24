@@ -1,3 +1,8 @@
+.fondoApp {
+  background-image: url('./resources/home.jpg');
+  background-size: 100%;
+}
+
 .App {
   text-align: center;
 }

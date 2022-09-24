@@ -1,0 +1,37 @@
+.pagination {
+    font-family: 'Merriweather';
+    font-size: 15px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color:white
+}
+
+.pagination button {
+    text-decoration: none;
+    font-family: 'Merriweather';
+    border-radius: 10px;
+    width: 60px;
+    height: 30px;
+    margin-right: 40px;
+    background-color: rgb(29, 29, 29);
+    color: white;
+    cursor: pointer;
+    padding: 4px;
+    border: 1px solid rgb(29, 29, 29);
+    margin: 10px;
+}
+
+.pagination h4{
+    background-color: transparent;
+    border-radius: 15px;
+    backdrop-filter: blur(3px) brightness(40%);
+    padding: 2px;
+}
+
+.pagination button:hover{
+    cursor: pointer;
+    border: 1px solid white;
+    background-color: rgb(61, 61, 61);
+}

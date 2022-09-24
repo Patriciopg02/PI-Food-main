@@ -1,0 +1,48 @@
+.fondoCreation {
+    background-image: url('../../resources/fondoCreation.jpg');
+    max-width: 100%;
+    background-position-y: 1200px;
+    background-size: 100%;
+}
+
+.Navcreation{
+    margin-bottom: 40px;
+    padding: 30px;
+    backdrop-filter: blur(3px);
+    border-bottom-style:double;
+    border-top-style:double;
+    display:flex;
+    justify-content: space-around;
+}
+
+.Navcreation a{
+    text-decoration: none;
+    border-radius: 10px;
+    width: 60px;
+    height: 25px;
+    margin-right: 40px;
+    background-color: rgb(29, 29, 29);
+    color: white;
+    font-family: 'Merriweather';
+    cursor: pointer;
+    padding-top: 4px;
+    font-size: 15px;
+    border: 1px solid rgb(29, 29, 29);
+}
+.Navcreation a:hover{
+    cursor: pointer;
+    border: 1px solid white;
+    background-color: rgb(61, 61, 61);
+}
+
+.LogoCreate {
+    text-shadow: 0 0 5px black, 0 0 20px black;
+    font-size: 25pt;
+    font-family: 'Lobster';
+    color: white;
+    margin-left:140px
+}
+
+.trash {
+    visibility: hidden;
+}

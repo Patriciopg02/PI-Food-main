@@ -1,0 +1,46 @@
+
+.searchbar {
+    width: 255px;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    border: 1px solid gray;
+    backdrop-filter: blur(4px) saturate(180%);
+    margin-top: 10px;
+}
+
+.input1 {
+    background: transparent;
+    font-family: 'Merriweather';
+    flex: 1;
+    border: 0;
+    outline: none;
+    font-size: 14px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-left: 48px;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.input2 {
+    border: 0;
+    border-radius: 13px;
+    width: 60px;
+    height: 30px;
+    margin-right: 40px;
+    background-color: rgb(29, 29, 29);
+    color: white;
+    font-family: 'Merriweather';
+    cursor: pointer;
+    padding: 4px;
+    border: 1px solid rgb(29, 29, 29);
+}
+
+.input2:hover{
+    cursor: pointer;
+    border: 1px solid white;
+    background-color: rgb(61, 61, 61);
+}

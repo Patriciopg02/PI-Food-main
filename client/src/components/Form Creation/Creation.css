@@ -1,0 +1,111 @@
+.creation{
+    position: absolute;
+    width: 100%;
+    background-image: url('../../resources/fondoCreation.jpg');
+    background-position: center;
+    background-size: 100%;    
+}
+
+.all_forms {
+    display: flex;
+    justify-content: space-around;
+}
+
+.Formu {
+    border: 1px solid black;
+    background-color: transparent;
+    width: 500px;
+    position: relative;
+    border-radius: 15px;
+    backdrop-filter: blur(4px) brightness(60%);
+    color: white;
+    font-family: 'Merriweather';
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.form_input{
+    position: relative;
+    width: 250px;
+    left: 125px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    background-color: rgb(43, 43, 43);
+}
+
+.form_input input{
+    /* background: transparent; */
+    flex: 1;
+    border: 0;
+    outline: none;
+    font-size: 14px;
+    margin-top: 5px;
+    padding-left: 5px;
+    margin-bottom: 10px;
+    color: white;
+    height: 25px;
+    width: 200px;
+    border-radius: 15px;
+    background-color: rgb(29, 29, 29);
+}
+
+.content-select select {
+    margin-top: 10px;
+}
+.content-select i {
+    margin-top: 5px;
+}
+
+.inputsubmit{
+    border-radius: 10px;
+    width: 60px;
+    height: 25px;
+    background-color: rgb(214, 140, 55);
+    color: Black;
+    font-family: 'Merriweather';
+    padding-top: 2px;
+    font-size: 15px;
+    border: 1px solid Black;
+}
+
+.inputsubmit:hover{
+    cursor: pointer;
+    border: 1px solid white;
+    background-color: rgb(252, 185, 110);
+}
+
+.addedDiets {
+    display:flex;
+    color: white;
+    font-family: 'Merriweather';
+    font-size: 13px;
+    flex-wrap: wrap;
+    margin-top:5px;
+    margin-left: 20px
+}
+
+
+.dietAdd {
+    display: flex;
+    width:auto;
+    border-radius: 15px;
+    background-color: rgb(43, 43, 43);
+    justify-content: space-between;
+    padding: 2px;
+    padding-left:5px;
+    margin:1px;
+}
+.dietAdd button {
+    background-color: rgb(214, 140, 55);
+    width: 20px;
+    border-radius: 15px;
+    font-size: 13px;
+    border: 1px solid rgb(214, 140, 55);
+    margin-left: 5px;
+}
+.dietAdd button:hover{
+    cursor: pointer;
+    border: 1px solid white;
+    background-color: rgb(252, 185, 110);
+}

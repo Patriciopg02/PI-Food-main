@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap');
+
+.DetailContainer {
+    background-image: url('../../resources/fondoDetail.jpg');
+    background-size: cover;
+    background-position-y: center;    
+    /* position: absolute; */
+    font-family: 'Merriweather';
+    padding-top: 35px;
+}
+
+.DetailContainer a{
+    text-decoration: none;
+    border-radius: 13px;
+    background-color: rgb(29, 29, 29);
+    color: white;
+    font-family: 'Merriweather';
+    cursor: pointer;
+    padding: 5px;
+    font-size: 15px;
+    border: 1px solid rgb(29, 29, 29);
+    position: absolute;
+    left: 24px;
+    top: 15px
+}
+
+.DetailContainer a:hover{
+    cursor: pointer;
+    border: 1px solid white;
+    background-color: rgb(61, 61, 61);
+}
+
+.SuperiorContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.SuperiorData {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.SuperiorContainer img {
+    width: 600px;
+    margin-top: 10px;
+    border-radius: 15px;
+    box-shadow: 1px 4px 8px black;
+}
+
+.DetailContainer h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    max-width: 500px;
+    margin-top: 40px;
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+    box-shadow: 1px 1px 6px black;
+    color: black;
+    font-family: 'Josefin Sans';
+    background-color: rgb(236, 166, 85);
+}
+
+.DetailContainer h3{
+    border: 1px solid black;
+    color: orange;
+    border-radius:15px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 4px black;
+    background-color: rgb(29, 29, 29);
+}
+
+#id {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.dishDetail{
+    display: flex;
+    align-items: center;
+}
+.itemdish {
+    font-weight: bold;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.dietDetail {
+    display: flex;
+    align-items: center;
+}
+.itemdiet {
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.healthDetail {
+    display: flex;
+    align-items: center;
+}
+.itemHS {
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+.InferiorContainer p {
+    font-weight: bold;
+    backdrop-filter: blur(4px);
+    margin: 10px;
+}
+
+.InferiorContainer h3 {
+    margin: 5px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.stepbystep {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+}
+
+.itemStep {
+    margin-bottom: 12px;
+}
+
+.itemStep #stepnumber {
+    background-color: rgb(236, 166, 85);
+    padding: 2px;
+    border-radius: 10px;
+}

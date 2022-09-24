@@ -1,0 +1,187 @@
+/* Imagen de fondo */
+
+.landing {
+    height: 100vh;
+    position: relative;
+}
+
+video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+.capa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1c1c1d;
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+}
+
+/* Import de la fuente */
+ 
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather:wght@300&display=swap');
+* {
+    margin:0;
+    padding:0;
+}
+
+/* Titulo con animacion */
+
+.title {
+    position: absolute;
+    left: 430px;
+    top: 80px;
+    text-shadow: 0 0 5px black, 0 0 20px black;
+    font-size: 50pt;
+    font-family: 'Lobster';
+    color: white;
+}
+
+.elements {
+    position: relative;
+    z-index: 2;
+}
+
+.flicker1{
+    animation: parpadear 2s infinite backwards;
+}
+.flicker2{
+    animation: parpadear 2.5s infinite backwards;
+}
+.flicker3{
+    animation: parpadear 1.5s infinite backwards;
+}
+.flicker4{
+    animation: parpadear 1.8s infinite backwards;
+}
+
+@keyframes parpadear {
+    to {
+        color: rgba(255, 255, 255, 0.719);
+        text-shadow: 0 0 2px black;
+    }
+}
+
+/* Frase */
+
+.phrase {
+    position: absolute;
+    top: 450px;
+    left: 60px;
+}
+
+.phrase span{
+    font-size: 20pt;
+    font-family: 'Lobster';
+    color: white;
+    text-shadow: 0 0 5px black, 0 0 20px black;
+}
+
+/* Creador */
+
+.creator {
+    position: absolute;
+    top: 630px;
+    left: 10px;
+}
+
+.creator span{
+    font-size: 10pt;
+    font-family: 'Lobster';
+    color: white;
+    animation: parpadear2 2s infinite backwards;
+}
+
+@keyframes parpadear2 {
+    to {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.555), 0 0 15px rgba(255, 255, 255, 0.719);
+    }
+}
+
+
+/* Boton de ingresar animado */
+
+.ingresar {
+    position: absolute;
+    left: 548px;
+    top: 320px;
+    width: 150px;
+    height: 35px;
+    cursor: pointer;
+    font-family:'Lobster';
+    color: white;
+    font-size: 24px;
+    padding: 15px 30px;
+    text-decoration: none;
+    transition: 0.2s;
+    overflow: hidden;
+    text-shadow: 0 0 5px black, 0 0 20px black;
+}
+.ingresar:hover{
+    background: rgb(255, 183, 89);
+    box-shadow: 0 0 20px rgb(194, 153, 92), 0 0 40px rgb(194, 153, 92);
+    transition-delay: 1s;
+}
+
+.ingresar span {
+    position: absolute;
+    display: block;
+}
+#span1{
+    top:0;
+    left:-100%;
+    width:100%;
+    height: 2px;
+    background: linear-gradient(90deg,transparent,orange);
+}
+.ingresar:hover #span1{
+    left:100%;
+    transition: 1s;
+}
+
+#span3{
+    bottom:0;
+    right:-100%;
+    width:100%;
+    height: 2px;
+    background: linear-gradient(270deg,transparent,orange);
+}
+.ingresar:hover #span3{
+    right:100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+
+#span2{
+    top:-100%;
+    right:0;
+    width:2px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,orange);
+}
+.ingresar:hover #span2{
+    top:100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+
+#span4{
+    bottom:-100%;
+    left:0;
+    width:2px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,orange);
+}
+.ingresar:hover #span4{
+    bottom:100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
