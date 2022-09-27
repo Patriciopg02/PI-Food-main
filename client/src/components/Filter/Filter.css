@@ -15,7 +15,7 @@
  
 .content-select select{
 	display: inline-block;
-	width: auto;
+	width: 100%;
 	cursor: pointer;
   	padding: 4px 15px;
   	height: 32px;

@@ -39,7 +39,7 @@ export default function Filter() {
                 {
                     filter !== false && 
                     <div className='deleteFilter'>
-                        <span className='selectP'>Delete filter</span>
+                        <p className='selectP'>Delete filter</p>
                         <button type='button' className='btnDelet' onClick={onDelete}>X</button>
                     </div>
                 }

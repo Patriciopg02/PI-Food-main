@@ -50,24 +50,27 @@ export function CreateRecipe(props) {
         health_score: props.health_score
         })
         .then(function (response) {
-            // console.log('id de receta nueva');
+            // console.log(response);
             // console.log(response.data.id);
-            for (let i = 0; i < props.diets.length; i++) {
-                // console.log('dieta');
-                // console.log(props.diets[i].id);
-                axios.post(`http://localhost:3001/api/recipes/${response.data.id}/diet/${props.diets[i].id}`)
-                .then(function (response) {
-                    console.log('OK');
-                    console.log(response);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
+            if (response.data === 'Esta receta ya existe!') {
+                alert('Esta receta ya existe!')
+            }
+            else {
+                for (let i = 0; i < props.diets.length; i++) {
+                    // console.log('dieta');
+                    // console.log(props.diets[i].id);
+                    axios.post(`http://localhost:3001/api/recipes/${response.data.id}/diet/${props.diets[i].id}`)
+                    .then(function (response) {
+                        console.log('OK');
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+                }
             }
         })
-        .catch(function (error) {
-            alert('Receta existente.');
-        });
+        .catch(err => console.log(err));
     }
 }
 

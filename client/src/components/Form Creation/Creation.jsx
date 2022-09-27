@@ -15,6 +15,10 @@ const formValidations = (input) => {
 
     if (!input.image) errors.image = 'You must complete with a image link';
 
+    if (input.diets.length === 0) errors.diets = 'You must complete with a diet';
+
+    if(input.steps.length === 0) errors.steps = 'You must complete with instructions'
+
     return errors;
 }
 
@@ -80,7 +84,7 @@ export default function Creation() {
         //Todo correcto, se envian los datos!
         if (Object.keys(Errors).length === 0) {
           dispatch(CreateRecipe(Form));
-          alert('Su receta fue creada con exito');
+          alert('Creando receta...');
           setForm({
             name:'',
             image:'',
@@ -176,7 +180,7 @@ export default function Creation() {
                             <form onSubmit={(e) => onSubmit(e)}>
                                 <div className="form_input">
                                     <h2>Name</h2>
-                                    <input name="name" type='text'onChange={onChange} value={Form.name}/>
+                                    <input name="name" pattern="[A-Za-z]{1,15}" type='text'onChange={onChange} value={Form.name}/>
 
                                     {/* Control de errores */}
                                     {Errors.name && <h4 className='error'>{Errors.name}</h4>}
@@ -214,6 +218,10 @@ export default function Creation() {
                                             }
                                         </select>
                                         <i></i>
+
+                                        {/* Control de errores */}
+                                        {Errors.diets && <h4 className='error'>{Errors.diets}</h4>}
+
                                     </div>
                                 </div>
 
@@ -230,12 +238,15 @@ export default function Creation() {
                                             }
                                         </select>
                                         <i></i>
+
+                                        {/* Control de errores */}
+                                        {Errors.steps && <h4 className='error'>{Errors.steps}</h4>}
                                     </div> 
                                 </div>
 
                                 <div className="form_input">
                                     <h2>Health Score:</h2>
-                                    <input name="health_score" type='text' onChange={onChange} placeholder='0' value={Form.health_score}/>
+                                    <input name="health_score" type='number' min='1' max='100' onChange={onChange} placeholder='0 - 100' value={Form.health_score}/>
                                     
                                     {/* Control de errores */}
                                     {Errors.health_score && <h4 className='error'>{Errors.health_score}</h4>}
@@ -275,7 +286,9 @@ export default function Creation() {
     }
     else {
         return (
-            <h1>Loading...</h1>
+            <div className='voidList'>
+            <h3>Loading...</h3>
+            </div>
         )
     }
 }

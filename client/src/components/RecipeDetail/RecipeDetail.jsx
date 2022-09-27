@@ -35,13 +35,13 @@ export default function RecipeDetail() {
                                 <h3>Diet Types:</h3>
                                 <div className='diettypes'>
                                     {Detail.diets.map(d => (
-                                        <span className='itemdiet' key={d}>{d}   </span>
+                                        <span className='itemdiet' key={d}>◉ {d}   </span>
                                         ))}
                                 </div>
                             </div>
                             <div className='healthDetail'>
                                 <h3>Health Score:</h3>
-                                <span className='itemHS'>{Detail.health_score}</span>
+                                <span className='itemHS'>♥ {Detail.health_score}</span>
                             </div>
                         </div>
                         <img src={Detail.image} alt='imageUnknown'/>
@@ -77,7 +77,7 @@ export default function RecipeDetail() {
                                 <h3>Dish Types:</h3>
                                 <div className='dishtypes'>
                                     {Detail.dish_types.map(d => (
-                                        <span className='itemdish' key={d}>{d}</span>
+                                        <span className='itemdish' key={d}>◉ {d}</span>
                                         ))}
                                 </div>
                             </div>
@@ -85,13 +85,13 @@ export default function RecipeDetail() {
                                 <h3>Diet Types:</h3>
                                 <div className='diettypes'>
                                     {Detail.diets.map(d => (
-                                        <span className='itemdiet' key={d}>{d}</span>
+                                        <span className='itemdiet' key={d}>◉ {d}</span>
                                         ))}
                                 </div>
                             </div>
                             <div className='healthDetail'>
                                 <h3>Health Score:</h3>
-                                <span className='itemHS'>{Detail.health_score}</span>
+                                <span className='itemHS'>♥ {Detail.health_score}</span>
                             </div>
                         </div>
                         <img src={Detail.image} alt='imageUnknown'/>

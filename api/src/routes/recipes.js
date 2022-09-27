@@ -57,33 +57,32 @@ router.get('/', (req,res,next) => {
     let allRecipes;
     if (query === true) {
         filtered_dbrecipes = recipesDB.map(recipe => {
-            console.log(recipe.dataValues.id);
+            let diets_copy = recipesDietsDB.filter(rd => rd.recipeId === recipe.id);
+            diets_copy = diets_copy.map(rd => {
+                let diet = dietsDB.find(d => d.id === rd.dietId);
+                if(diet !== null) return diet.name;
+            })
             return {
                 id: recipe.dataValues.id,
                 image: recipe.dataValues.image,
                 name: recipe.dataValues.name,
-                diets: recipesDietsDB.map(rd => {
-                    if(rd.recipeId === recipe.dataValues.id) {
-                        let diet = dietsDB.find(d => d.id === rd.dietId);
-                        if(diet !== null) return diet.name;
-                    }
-                }),
+                diets: diets_copy,
                 health_score: recipe.dataValues.health_score,
             }
         })
     } 
     else {
         filtered_dbrecipes = recipesDB.map(recipe => {
+            let diets_copy = recipesDietsDB.filter(rd => rd.recipeId === recipe.id);
+            diets_copy = diets_copy.map(rd => {
+                let diet = dietsDB.find(d => d.id === rd.dietId);
+                if(diet !== null) return diet.name;
+            })
             return {
                 id: recipe.id,
                 image: recipe.image,
                 name: recipe.name,
-                diets: recipesDietsDB.map(rd => {
-                    if(rd.recipeId === recipe.id) {
-                        let diet = dietsDB.find(d => d.id === rd.dietId);
-                        if(diet !== null) return diet.name;
-                    }
-                }),
+                diets: diets_copy,
                 health_score: recipe.health_score,
             }
         })
@@ -96,10 +95,10 @@ router.get('/', (req,res,next) => {
     }
 
     if(offset == 0) {
-        return res.status(201).json(allRecipes);
+        return res.status(200).json(allRecipes);
     }
     else {
-        return res.status(201).json(filtered_apirecipes);
+        return res.status(200).json(filtered_apirecipes);
     }
     })
     .catch(err => next(err))
@@ -121,7 +120,7 @@ router.post('/', async(req,res,next) => {
                 image
             })
             
-            return res.status(201).json(newRecipe);
+            return res.status(200).json(newRecipe);
         }
         else {
             return res.send('Esta receta ya existe!')
@@ -135,8 +134,9 @@ router.post('/', async(req,res,next) => {
 router.post('/:recipeID/diet/:dietID', async(req,res,next) => {
     let {recipeID, dietID} = req.params;
     let recipe = await Recipe.findByPk(recipeID);
+    let relaciones = await Recipe_Diet.findAll();
     await recipe.addDiet(dietID);
-    return res.send(recipe);
+    return res.send(relaciones);
 })
 
 
@@ -160,23 +160,25 @@ router.get('/:id', async(req,res,next) => {
                     RecipesDiets,
                     DietsDB
                 ] = response
-                
+
+                let diets_copy = RecipesDiets.filter(rd => rd.recipeId === recipeDB.id);
+                diets_copy = diets_copy.map(rd => {
+                    let diet = DietsDB
+                    .find(d => d.id === rd.dietId);
+                    if(diet !== null) return diet.name;
+                })
+
                 let finishRecipe = {
                     id: recipeDB.id,
                     image: recipeDB.image,
                     name: recipeDB.name,
-                    diets: RecipesDiets.map(rd => {
-                        if(rd.recipeId === recipeDB.id) {
-                            let diet = DietsDB.find(d => d.id === rd.dietId);
-                            if(diet !== null) return diet.name;
-                        }
-                    }),
+                    diets: diets_copy,
                     health_score: recipeDB.health_score,
                     summary: recipeDB.summary,
                     instructions: recipeDB.instructions,
                     
                 }
-                res.status(201).json(finishRecipe);
+                res.status(200).json(finishRecipe);
             })
             .catch(err => next(err))       
         }
@@ -198,7 +200,7 @@ router.get('/:id', async(req,res,next) => {
                     }
                 })
             };
-            res.status(201).json(recipe);
+            res.status(200).json(recipe);
         }   
     }
     catch(err) {
