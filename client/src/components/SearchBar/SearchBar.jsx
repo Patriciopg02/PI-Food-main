@@ -1,15 +1,21 @@
 import { useState } from "react";
-import { useDispatch} from 'react-redux';
-import { SearchRecipes } from "../../store/actions";
+import { useDispatch, useSelector} from 'react-redux';
+import { getRecipes, SearchRecipes } from "../../store/actions";
 import './SearchBar.css'
 
 export default function SearchBar() {
     const [Search, setSearch] = useState('');
     let dispatch = useDispatch();
+    let offset = useSelector(state => state.offset);
 
 
     function onSubmit(e) {
-        e.preventDefault(); 
+        e.preventDefault();
+        //Al poner la busqueda en vacio vuelve a la lista principal.
+        if(Search === '') {
+            dispatch(getRecipes(offset))
+        }
+        //Sino muestra los resultados
         dispatch(SearchRecipes(Search))
     }
 

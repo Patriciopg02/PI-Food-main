@@ -6,8 +6,9 @@ export default function Landing(){
     return (
         <div className="landing">
             <div className='elements'>
-                <div className='title'>
 
+                {/* Logo con Animacion */}
+                <div className='title'>
                     <span className='flicker3'>Y</span>
                     <span>ou</span>
                     <span className='flicker2'>r</span>
@@ -21,6 +22,8 @@ export default function Landing(){
                     <span>ap</span>
                     <span className='flicker4'>p</span>
                 </div>
+
+                {/* Boton con animacion de ingreso */}
                 <a href="http://localhost:3000/home" className='ingresar'>
                     <span id='span1'></span>
                     <span id='span2'></span>
@@ -28,17 +31,25 @@ export default function Landing(){
                     <span id='span4'></span>
                     Join
                     </a>
+
+                {/* Frase de gastronomia */}
                 <div className='phrase'>
                     <span>" El descubrimiento de un nuevo plato es de más provecho para la humanidad que el descubrimiento de una estrella "</span>
                 </div>
+
+                {/* Creador de la APP */}
                 <div className='creator'>
                     <span>by Patricio Pereyra Gargiulo</span>
                 </div>
             </div>
+
+            {/* Etiqueta video para el fondo */}
             <video muted autoPlay loop>
                 <source src={video}
                 type='video/mp4'/>
             </video>
+
+            {/* Div 'capa' para dar efecto al video */}
             <div className='capa'></div>
         </div>
     )

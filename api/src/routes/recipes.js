@@ -89,7 +89,7 @@ router.get('/', (req,res,next) => {
     }
     allRecipes = [...filtered_dbrecipes, ...filtered_apirecipes] 
         
-    if (allRecipes.length === 0) res.status(400).send('No se encontro la receta buscada.');
+    if (allRecipes.length === 0) res.status(200).send('No se encontro la receta buscada.');
     while (allRecipes.length > 9) {
         allRecipes.pop();
     }

@@ -15,7 +15,8 @@ export default function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 recipes: action.payload,
-                filtered_recipes: action.payload
+                filtered_recipes: action.payload,
+                filter:false
             }
         case GET_RECIPES_DB:
             let myrecipes = action.payload.filter(r => typeof(r.id) === 'string' );
@@ -31,10 +32,20 @@ export default function rootReducer(state = initialState, action) {
             }
 
         case SEARCH_RECIPES:
-            return {
-                ...state,
-                filtered_recipes: action.payload
+            if (action.payload === 'No se encontro la receta buscada.') {
+                return {
+                    ...state,
+                    filtered_recipes: [],
+                    filter: true
+                }}
+            else{
+                return {
+                        ...state,
+                        filtered_recipes: action.payload,
+                        filter: true
+                }
             }
+
         case ORDER:
             var Ordered_recipes=[...state.filtered_recipes];
             console.log(action.payload);
@@ -86,7 +97,7 @@ export default function rootReducer(state = initialState, action) {
             }
             return {
                 ...state,
-                filtered_recipes: state.recipes
+                filtered_recipes: state.recipes,
             }
 
         case CHANGE_PAGE:

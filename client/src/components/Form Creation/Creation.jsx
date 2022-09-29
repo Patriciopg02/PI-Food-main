@@ -7,17 +7,28 @@ import './Creation.css'
 
 const formValidations = (input) => {
     const errors = {}
-    if (!input.name.trim()) errors.name = 'You must complete with a name';
+    //Errores en el name
+    if (!input.name) errors.name = 'You must complete with a name';
+    else if(/^\s+$/.test(input.name)) errors.name = 'The name cannot be a blank space';  //No haya espacios en blanco
+    else if(!/^[a-zA-Z]{4,20}$/.test(input.name)) errors.name= 'The name must only contain letters (4-20)'; //Solo letras desde 4 a 20 caracteres.
 
-    if (!input.summary.trim()) errors.summary = 'You must complete with a summary';
+    //Errores en el summary
+    if (!input.summary) errors.summary = 'You must complete with a summary';
+    else if(/^\s+$/.test(input.summary)) errors.summary = 'The summary cannot be a blank space';
 
-    if (!input.health_score.trim()) errors.health_score = 'You must complete with a healthy score';
+    //Errores en el healthscore
+    if (!input.health_score) errors.health_score = 'You must complete with a healthy score';
+    else if(/^\s+$/.test(input.health_score)) errors.health_score = 'The health score cannot be a blank space';
+    else if(!(/^[1-9][0-9]?$|^100$/.test(input.health_score))) errors.health_score = 'The health score should only vary between 1-100'
 
+    //Errores en el imagelink
     if (!input.image) errors.image = 'You must complete with a image link';
 
-    if (input.diets.length === 0) errors.diets = 'You must complete with a diet';
+    //Errores en las diets
+    if (input.diets.length === 0) errors.diets = 'You must complete with a diet';  //No sea vacio
 
-    if(input.steps.length === 0) errors.steps = 'You must complete with instructions'
+    //Errores en los steps
+    if(input.steps.length === 0) errors.steps = 'You must complete with instructions';  //No sea vacio
 
     return errors;
 }
@@ -46,10 +57,12 @@ export default function Creation() {
     function onSelect(e) {
         let newdiet= dietsDB.find(d => d.name == e.target.value);
         if (!Form.diets.find(d => d.name == newdiet.name)) {
-            setForm({
-                ...Form,
-                diets: [...Form.diets, newdiet]
-            })
+            if (Form.diets.length < 4) {
+                setForm({
+                    ...Form,
+                    diets: [...Form.diets, newdiet]
+                })
+            }
         }
     }
 
@@ -208,7 +221,7 @@ export default function Creation() {
                                     <h2>Diet Types</h2>
                                     <div className="content-select">
                                         <select name='diets' onChange={onSelect}>
-                                            <option selected value='Select Diets'>Select Diets</option>
+                                            <option selected value='Select Diets'>Select Diets (max 4)</option>
                                             {
                                                 dietsDB?.map((d, index) => {
                                                     return (

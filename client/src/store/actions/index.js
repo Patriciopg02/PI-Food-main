@@ -78,6 +78,7 @@ export function SearchRecipes(search) {
     return function(dispatch) {
         axios.get(`http://localhost:3001/api/recipes?name=${search}&offset=0`)
         .then((recipes) => {
+            // console.log(recipes.data);
             dispatch({
                 type: SEARCH_RECIPES,
                 payload: recipes.data
