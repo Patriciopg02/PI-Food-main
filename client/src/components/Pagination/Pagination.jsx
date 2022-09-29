@@ -32,6 +32,7 @@ export default function Pagination() {
         )
     }
     else {
+        //Se inhabilita la paginacion cuando hay un filtro aplicado. Ya que solo mostrara hasta 9 cartas unicamente.
         return (
             <div className="paginationUnhabilited">
                 <button type="button" value="Back">Back</button>

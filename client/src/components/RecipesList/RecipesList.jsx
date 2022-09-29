@@ -10,8 +10,9 @@ export default function RecipesList() {
     let filter = useSelector((state) => state.filter);
     const dispatch = useDispatch();
 
-    console.log(recipes);
+    // console.log(recipes);
 
+    //Al cargar el home por primera vez, me traigo las recetas y las dietas de la API, para trabajar con ellas mas adelante.
     useEffect(() => {
         dispatch(getRecipes(offset));
         dispatch(getDiets());
