@@ -24,7 +24,7 @@ export default function Landing(){
                 </div>
 
                 {/* Boton con animacion de ingreso */}
-                <a href={`${process.env.BACK_HOST}/home`} className='ingresar'>
+                <a href={`${process.env.FRONT_HOST}/home`} className='ingresar'>
                     <span id='span1'></span>
                     <span id='span2'></span>
                     <span id='span3'></span>
