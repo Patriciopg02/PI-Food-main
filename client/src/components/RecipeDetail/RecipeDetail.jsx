@@ -12,7 +12,7 @@ export default function RecipeDetail() {
 
     //Traigo los datos de la receta con un pedido al backend.
     useEffect(() => {
-        axios.get(`http://localhost:3001/api/recipes/${id}`)
+        axios.get(`${process.env.BACK_HOST}/api/recipes/${id}`)
         .then((response) => {
             // console.log(response.data);
 
@@ -165,7 +165,7 @@ export default function RecipeDetail() {
     }
     else {
         return (
-        <div className='voidList'>
+        <div className='messageLoading'>
             <h3>Loading...</h3>
         </div>
         )

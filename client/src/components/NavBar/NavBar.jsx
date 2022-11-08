@@ -45,7 +45,7 @@ export default function NavBar() {
 
                 {/* Creation Button */}
                 <div className="creationButton">
-                    <a href="http://localhost:3000/creation">Create</a>
+                    <a href={`${process.env.BACK_HOST}/creation`}>Create</a>
                 </div>
 
                 {/* Switch My Recipes */}

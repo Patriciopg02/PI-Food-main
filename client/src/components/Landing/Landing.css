@@ -1,8 +1,8 @@
 /* Imagen de fondo */
 
 .landing {
-    height: 100vh;
-    position: relative;
+    height: 98vh;
+    width: 197vh;
 }
 
 video {
@@ -36,9 +36,6 @@ video {
 /* Titulo con animacion */
 
 .title {
-    position: absolute;
-    left: 430px;
-    top: 80px;
     text-shadow: 0 0 5px black, 0 0 20px black;
     font-size: 50pt;
     font-family: 'Lobster';
@@ -47,7 +44,13 @@ video {
 
 .elements {
     position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
     z-index: 2;
+    height: 98vh;
+    width: 197vh;
 }
 
 .flicker1{
@@ -72,12 +75,6 @@ video {
 
 /* Frase */
 
-.phrase {
-    position: absolute;
-    top: 450px;
-    left: 60px;
-}
-
 .phrase span{
     font-size: 20pt;
     font-family: 'Lobster';
@@ -86,13 +83,11 @@ video {
 }
 
 /* Creador */
-
 .creator {
     position: absolute;
-    top: 630px;
-    left: 10px;
+    bottom: 0px;
+    left: 15px;
 }
-
 .creator span{
     font-size: 10pt;
     font-family: 'Lobster';
@@ -110,9 +105,7 @@ video {
 /* Boton de ingresar animado */
 
 .ingresar {
-    position: absolute;
-    left: 548px;
-    top: 320px;
+    position: relative;
     width: 150px;
     height: 35px;
     cursor: pointer;

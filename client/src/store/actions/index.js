@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export function getRecipes(offset) {
     return function(dispatch) {
-        axios.get(`http://localhost:3001/api/recipes?offset=${offset}`)
+        axios.get(`${process.env.BACK_HOST}/api/recipes?offset=${offset}`)
         .then((recipes) => {
             dispatch({
                 type: GET_RECIPES,
@@ -16,7 +16,7 @@ export function getRecipes(offset) {
 
 export function getDiets() {
     return function(dispatch) {
-        axios.get(`http://localhost:3001/api/diets/`)
+        axios.get(`${process.env.BACK_HOST}/api/diets/`)
         .then((diets) => {
             dispatch({
                 type: GET_DIETS,
@@ -29,7 +29,7 @@ export function getDiets() {
 
 export function getRecipesDB() {
     return function(dispatch) {
-        axios.get(`http://localhost:3001/api/recipes?offset=0`)
+        axios.get(`${process.env.BACK_HOST}/api/recipes?offset=0`)
         .then((recipes) => {
             dispatch({
                 type: GET_RECIPES_DB,
@@ -42,7 +42,7 @@ export function getRecipesDB() {
 
 export function CreateRecipe(props) {
     return function() {
-        axios.post('http://localhost:3001/api/recipes/', {
+        axios.post(`${process.env.BACK_HOST}/api/recipes/`, {
         name: props.name,
         image: props.image,
         summary: props.summary,
@@ -59,7 +59,7 @@ export function CreateRecipe(props) {
                 for (let i = 0; i < props.diets.length; i++) {
                     // console.log('dieta');
                     // console.log(props.diets[i].id);
-                    axios.post(`http://localhost:3001/api/recipes/${response.data.id}/diet/${props.diets[i].id}`)
+                    axios.post(`${process.env.BACK_HOST}/api/recipes/${response.data.id}/diet/${props.diets[i].id}`)
                     .then(function (response) {
                         console.log('OK');
                         console.log(response);
@@ -76,7 +76,7 @@ export function CreateRecipe(props) {
 
 export function SearchRecipes(search) {
     return function(dispatch) {
-        axios.get(`http://localhost:3001/api/recipes?name=${search}&offset=0`)
+        axios.get(`${process.env.BACK_HOST}/api/recipes?name=${search}&offset=0`)
         .then((recipes) => {
             // console.log(recipes.data);
             dispatch({
@@ -102,9 +102,9 @@ export function Order_recipes(order) {
     }
 }
 
-export function Filter_recipes(list) {
+export function Filter_recipes(elem) {
     return {
         type: FILTER,
-        payload: list
+        payload: elem
     } 
 }

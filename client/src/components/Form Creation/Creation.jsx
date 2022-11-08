@@ -140,27 +140,32 @@ export default function Creation() {
 
     //Añadir inputs
     function numberSteps(e) {
+        //num= numero de inputs
         let num = e.target.value;
         let Numsteps = [];
+
+        //nuevo array que se autocompleta con lo que ya tenia form
         let StepsInformation = [];
         for (let i = 1; i <= num; i++){
             Numsteps.push(i);
             StepsInformation.push({number:i,step:''})
         }
+        //crea los inputs
         setNsteps([...Numsteps]);
-        // console.log('StepsInformation')
+        // console.log(Numsteps)
         // console.log(StepsInformation);
         if (Form.steps.length !== 0) {
-            for (let i = 1; i < StepsInformation.length; i++) {
-                StepsInformation[(i)-1].step = Form.steps[(i)-1].step;
-            }
-        }
+            for (let i = 1; i <= Numsteps.length; i++) {
+                if(Form.steps[(i)-1] !== undefined) {
+                    StepsInformation[(i)-1].step = Form.steps[(i)-1].step;
+                }
+        }}
         setForm({
             ...Form,
             steps: StepsInformation
         })
-        console.log('FormSteps');
-        console.log(Form.steps);
+        // console.log('FormSteps');
+        // console.log(Form.steps);
     }
 
 
@@ -169,6 +174,7 @@ export default function Creation() {
         let step = Form.steps.find(s => (s.number == e.target.id));
         let stepsCopy = Form.steps;
         stepsCopy[(step.number)-1].step = e.target.value;
+        // console.log(stepsCopy[(step.number)-1]);
         // console.log(stepsCopy);
         setForm({
             ...Form,
@@ -221,7 +227,7 @@ export default function Creation() {
                                     <h2>Diet Types</h2>
                                     <div className="content-select">
                                         <select name='diets' onChange={onSelect}>
-                                            <option selected value='Select Diets'>Select Diets (max 4)</option>
+                                            <option selected disabled value='Select Diets'>Select Diets (max 4)</option>
                                             {
                                                 dietsDB?.map((d, index) => {
                                                     return (
@@ -259,7 +265,7 @@ export default function Creation() {
 
                                 <div className="form_input">
                                     <h2>Health Score:</h2>
-                                    <input name="health_score" type='number' min='1' max='100' onChange={onChange} placeholder='0 - 100' value={Form.health_score}/>
+                                    <input name="health_score" type='number' min='1' max='100' onChange={onChange} placeholder='1 - 100' value={Form.health_score}/>
                                     
                                     {/* Control de errores */}
                                     {Errors.health_score && <h4 className='error'>{Errors.health_score}</h4>}
@@ -293,6 +299,9 @@ export default function Creation() {
                                 ))
                             }
                         </div>
+                    </div>
+                    <div className="divvoid">
+
                     </div>
                 </div>
         )

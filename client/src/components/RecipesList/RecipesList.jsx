@@ -22,7 +22,7 @@ export default function RecipesList() {
     //Muestra mensaje de 'Recetas no encontradas' por el estado filter
     if(recipes.length === 0 && filter === true) {
         return (
-            <div className='voidList'>
+            <div className='message'>
                 <h3>No se encontraron recetas :(</h3>
             </div>
         )
@@ -31,7 +31,7 @@ export default function RecipesList() {
     //Muestra mensaje de 'Loading'
     else if(recipes.length === 0) {
         return (
-            <div className='voidList'>
+            <div className='message'>
                 <h3>Loading...</h3>
             </div>
         )

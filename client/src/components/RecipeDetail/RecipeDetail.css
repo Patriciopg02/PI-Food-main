@@ -7,6 +7,7 @@
     /* position: absolute; */
     font-family: 'Merriweather';
     padding-top: 35px;
+    min-height: 96vh;
 }
 
 .DetailContainer a{
@@ -144,4 +145,26 @@
     background-color: rgb(236, 166, 85);
     padding: 2px;
     border-radius: 10px;
+}
+
+.messageLoading {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.messageLoading h3{
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 120px;
+    font-family: 'Merriweather';
+    font-size: 25px;
+    color: rgb(102, 0, 0);
+    background-color: rgb(255, 174, 174);
+    border-radius: 15px;
+    border: 1px solid rgb(151, 0, 0);
+    padding-left: 10px;
+    padding-right: 10px;
 }
